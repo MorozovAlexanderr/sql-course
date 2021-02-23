@@ -41,7 +41,7 @@ SELECT LENGTH(Name) AS CountChars,
 
 
 # 11. Вивести значення наступних колонок: перші 10 і останні 10 символів назви прописними буквами, розділені '...'
-SELECT CONCAT(LEFT(Name, 10), '...', RIGHT(Name, 10)) AS ShortName FROM books
+SELECT LOWER(CONCAT(LEFT(Name, 10), '...', RIGHT(Name, 10))) AS ShortName FROM books
 
 
 # 12. Вивести значення наступних колонок: назва, дата, день, місяць, рік
@@ -61,15 +61,17 @@ SELECT Name,
 
 
 # 14. Вивести значення наступних колонок: код, ціна, ціна в грн., ціна в євро, ціна в руб.
-SELECT CONCAT('€', Price * 74) AS PriceEuro,
-	   CONCAT('₽', Price * 0.38) AS PriceRuble  
+SELECT BookCode,
+	   Price,
+	   CONCAT('€', Price * 0.03) AS PriceEuro,
+	   CONCAT('₽', Price * 2.67) AS PriceRuble  
   FROM books
 
 
 # 15. Вивести значення наступних колонок: код, ціна, ціна в грн. без копійок, ціна без копійок округлена
 SELECT BookCode,
 	   Price, 
-       ROUND(Price) AS RoundPrice,
+       TRUNCATE(Price, 0) AS RoundPrice,
        CEILING(Price) AS FloorPrice
   FROM books
 

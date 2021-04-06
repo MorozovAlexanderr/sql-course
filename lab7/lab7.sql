@@ -24,7 +24,7 @@ SELECT b.Name,
        ON c.Id = b.CategoryId
        JOIN publishers AS p
        ON p.Id = b.PublisherId
- ORDER BY t.ThemeName, c.CatName
+ ORDER BY t.ThemeName, c.CatName;
 
 CALL select_books_2()
 

@@ -23,7 +23,6 @@ CALL get_book_list_by_year(2000);
 -- 		c.	переприсвоїти курсор іншої змінної;
 -- 		d.	виконати вибірку даних з курсору;
 -- 		e.	закрити курсор;
-
 DELIMITER $$
 CREATE PROCEDURE test_cursors(INOUT return_val INT)
 BEGIN
